@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 from bs4 import BeautifulSoup
 import requests
 from nltk.tokenize import sent_tokenize
@@ -80,7 +80,7 @@ def generate_summary(article, top_n=5):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_file('index.html')
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
